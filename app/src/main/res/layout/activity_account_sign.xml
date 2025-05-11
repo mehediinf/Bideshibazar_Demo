@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/font_page"
+            android:layout_marginBottom="70dp"
+            android:contentDescription="Bideshi Bazar Logo" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in to your account"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="40dp" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            style="@style/RoundedButton"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:text="Already a customer? Sign in" />
+
+        <Button
+            android:id="@+id/btnCreateAccount"
+            style="@style/RoundedButtonGray"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:text="New to Bideshibazar? Create an account" />
+
+        <Button
+            android:id="@+id/btnSkip"
+            style="@style/RoundedButtonGray"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:text="Skip sign in" />
+
+    </LinearLayout>
+</ScrollView>

@@ -23,7 +23,8 @@
     <color name="primary_brand">#FF9800</color>
 
 
-    <color name="shimmerCustomColor">#D3D3D3</color> <!-- আপনার ইচ্ছামতো রঙ দিন -->
+    <color name="shimmerCustomColor">#D3D3D3</color>
+    <color name="green">#87D32A</color> <!-- আপনার ইচ্ছামতো রঙ দিন -->
 
 
 </resources>
