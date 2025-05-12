@@ -7,17 +7,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:padding="24dp">
 
         <!-- Welcome -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:layout_marginBottom="16dp"
+            android:gravity="center"
             android:text="Welcome"
             android:textColor="@color/primary_brand"
             android:textSize="22sp"
@@ -26,8 +26,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#CCCCCC"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#CCCCCC" />
 
         <!-- Sub Heading -->
         <TextView
@@ -44,45 +44,51 @@
             android:id="@+id/emailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_background"
             android:hint="Email Address"
             android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/edittext_background" />
+            android:textColor="#000000"
+            android:textColorHint="#808080"
+            android:padding="12dp" />
 
         <!-- Password -->
         <EditText
             android:id="@+id/passwordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_background"
             android:hint="Password"
             android:inputType="textPassword"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/edittext_background" />
+            android:textColor="#000000"
+            android:textColorHint="#808080"
+            android:padding="12dp" />
 
         <!-- Remember me + Forgot -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/checkboxRemember"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
                 android:layout_height="wrap_content"
-                android:text="Remember me" />
+                android:layout_weight="0.5"
+                android:textColor="#000000"
+                android:text="Remember me"
+                />
 
             <TextView
                 android:id="@+id/forgotPassword"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
                 android:layout_height="wrap_content"
-                android:gravity="right"
                 android:layout_marginRight="5dp"
+                android:layout_weight="0.5"
+                android:gravity="right"
                 android:text="Forgot your password?"
                 android:textColor="#0066C0"
                 android:textSize="14sp" />
@@ -93,22 +99,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="16dp"
-            >
+            android:orientation="horizontal">
+
             <CheckBox
                 android:id="@+id/checkboxAgree"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="#000000"
                 android:text="I agree with "
-                 />
+
+                />
 
             <TextView
                 android:id="@+id/Terms_and_Privacy_id"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Terms &amp; Privacy."
                 android:textColor="#0066C0"
+                android:gravity="center"
 
                 />
 
@@ -120,19 +130,18 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#1877F2"
             android:text="Log In"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#1877F2"
-            android:layout_marginBottom="16dp" />
+            android:textColor="#FFFFFF" />
 
         <!-- OR line -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
-            >
+            android:orientation="horizontal">
 
             <View
                 android:layout_width="0dp"
@@ -156,61 +165,54 @@
         <!-- Google login -->
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGoogleSignIn"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_height="wrap_content" />
 
         <!-- OR Divider -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal">
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#CCCCCC"/>
+                android:background="#CCCCCC" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="  OR  "
-                android:textColor="#999999"/>
+                android:textColor="#999999" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#CCCCCC"/>
+                android:background="#CCCCCC" />
         </LinearLayout>
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="300dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
 
 
         <!-- Signup -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Don't have an account? "
-            android:textColor="#000000"
-            android:layout_gravity="center" />
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/signupLink"
+            style="@style/RoundedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/RoundedButton"
+            android:layout_gravity="center"
             android:text="Sign Up"
             android:textColor="#0066C0"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
