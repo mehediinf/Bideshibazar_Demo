@@ -1,118 +1,119 @@
 package com.mtach.bideshibazar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.*;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
-import com.google.android.gms.auth.api.signin.*;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
+import androidx.credentials.CredentialManager;
+import androidx.credentials.GetCredentialRequest;
+import androidx.credentials.GetCredentialResponse;
+import androidx.credentials.exceptions.GetCredentialException;
+//import androidx.credentials.google.GoogleIdTokenCredential;
+//import androidx.credentials.google.GoogleIdTokenCredentialRequest;
 
-public class LoginActivity extends AppCompatActivity {
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
+public class LoginActivity extends BaseActivity {
 
-    EditText emailInput, passwordInput;
-    CheckBox rememberMe, agreeTerms;
-    Button btnLogin, btnGoogle;
-    TextView forgotPassword, signupLink;
-
-
-
-    private static final int RC_SIGN_IN = 1001;
-    private GoogleSignInClient mGoogleSignInClient;
-
+//    EditText emailInput, passwordInput;
+//    CheckBox rememberMe, agreeTerms;
+//    Button btnLogin;
+//    TextView forgotPassword, signupLink;
+//    Button btnGoogleSignIn;
+//
+//    private CredentialManager credentialManager;
+//    private Executor executor;
+//
+//    private static final String TAG = "LoginActivity";
+//    private static final String WEB_CLIENT_ID = "YOUR_WEB_CLIENT_ID_HERE"; // Replace this!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        setupToolbar("Login", true);
 
 
-        emailInput = findViewById(R.id.emailInput);
-        passwordInput = findViewById(R.id.passwordInput);
-        rememberMe = findViewById(R.id.checkboxRemember);
-        agreeTerms = findViewById(R.id.checkboxAgree);
-        btnLogin = findViewById(R.id.btnLogin);
-        forgotPassword = findViewById(R.id.forgotPassword);
-        signupLink = findViewById(R.id.signupLink);
+//        // View bindings
+//        emailInput = findViewById(R.id.emailInput);
+//        passwordInput = findViewById(R.id.passwordInput);
+//        rememberMe = findViewById(R.id.checkboxRemember);
+//        agreeTerms = findViewById(R.id.checkboxAgree);
+//        btnLogin = findViewById(R.id.btnLogin);
+//        forgotPassword = findViewById(R.id.forgotPassword);
+//        signupLink = findViewById(R.id.signupLink);
+//        btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn);
+//
+//        credentialManager = CredentialManager.create(this);
+//        executor = Executors.newSingleThreadExecutor();
+//
+//        // Manual login button
+//        btnLogin.setOnClickListener(view -> {
+//            String email = emailInput.getText().toString();
+//            String password = passwordInput.getText().toString();
+//
+//            if (email.isEmpty() || password.isEmpty()) {
+//                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//
+//            if (!agreeTerms.isChecked()) {
+//                Toast.makeText(this, "You must agree to Terms & Privacy", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//
+//            Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
+//        });
 
-        btnLogin.setOnClickListener(view -> {
-            String email = emailInput.getText().toString();
-            String password = passwordInput.getText().toString();
-
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (!agreeTerms.isChecked()) {
-                Toast.makeText(this, "You must agree to Terms & Privacy", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
-            // You can add actual login logic here
-        });
-
-        btnGoogle.setOnClickListener(view -> {
-            Toast.makeText(this, "Google login coming soon...", Toast.LENGTH_SHORT).show();
-        });
-
-
-
-
-
-        // Configure sign-in to request the user’s ID, email address, and basic profile.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .requestIdToken("YOUR_WEB_CLIENT_ID_HERE")  // Replace with your Web client ID
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        findViewById(R.id.btnGoogleSignIn).setOnClickListener(view -> {
-            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-            startActivityForResult(signInIntent, RC_SIGN_IN);
-        });
-
-
-
-
-
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
+        // Google Sign-In button
+      //  btnGoogleSignIn.setOnClickListener(v -> startGoogleSignIn());
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
-            // Signed in successfully
-            String name = account.getDisplayName();
-            String email = account.getEmail();
-            String idToken = account.getIdToken();
-
-            Toast.makeText(this, "Signed in as " + name, Toast.LENGTH_SHORT).show();
-
-        } catch (ApiException e) {
-            Log.w("GOOGLE_SIGN_IN", "signInResult:failed code=" + e.getStatusCode());
-            Toast.makeText(this, "Sign-in failed", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    private void startGoogleSignIn() {
+//        GoogleIdTokenCredentialRequest googleIdTokenRequest =
+//                new GoogleIdTokenCredentialRequest.Builder()
+//                        .setServerClientId(WEB_CLIENT_ID)
+//                        .build();
+//
+//        GetCredentialRequest request = new GetCredentialRequest.Builder()
+//                .addCredentialOption(googleIdTokenRequest)
+//                .build();
+//
+//        credentialManager.getCredentialAsync(
+//                this,
+//                request,
+//                executor,
+//                result -> {
+//                    try {
+////                        GoogleIdTokenCredential credential =
+////                                GoogleIdTokenCredential.createFrom(result.getCredential());
+////
+////                        String idToken = credential.getIdToken();
+////                        String email = credential.getId();
+//
+//                        runOnUiThread(() ->
+//                                Toast.makeText(this, "Signed in as: " + email, Toast.LENGTH_SHORT).show()
+//                        );
+//
+//                        // You can send the idToken to your backend server here
+//
+//                    } catch (Exception e) {
+//                        runOnUiThread(() ->
+//                                Toast.makeText(this, "Sign-in failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+//                        );
+//                        Log.e(TAG, "Failed to parse Google credential", e);
+//                    }
+//                },
+//                exception -> {
+//                    runOnUiThread(() ->
+//                            Toast.makeText(this, "Google Sign-In error", Toast.LENGTH_SHORT).show()
+//                    );
+//                    Log.e(TAG, "getCredentialAsync failed");
+//                }
+//        );
+//    }
 }
-
-
-

@@ -24,7 +24,9 @@
 
 
     <color name="shimmerCustomColor">#D3D3D3</color>
-    <color name="green">#87D32A</color> <!-- আপনার ইচ্ছামতো রঙ দিন -->
+    <color name="green">#87D32A</color>
+    <color name="toolbar">#03A9F4</color>
+    <color name="white">#ffffff</color>
 
 
 </resources>

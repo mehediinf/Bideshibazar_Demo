@@ -1,20 +1,103 @@
 package com.mtach.bideshibazar;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import com.mtach.bideshibazar.databinding.ActivityMainBinding;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
+
+    ActivityMainBinding binding;
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+
+        replaceFragment(new HomeFragment());
+
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_home) {
+                replaceFragment(new HomeFragment());
+            } else if (id == R.id.nav_shop) {
+                replaceFragment(new HomeFragment());
+            } else if (id == R.id.nav_store) {
+                replaceFragment(new HomeFragment()); // পরবর্তীতে StoreFragment ব্যবহার করতে পারেন
+            } else if (id == R.id.nav_cart) {
+                replaceFragment(new HomeFragment()); // পরবর্তীতে CartFragment ব্যবহার করতে পারেন
+            } else if (id == R.id.nav_account) {
+                replaceFragment(new HomeFragment()); // পরবর্তীতে AccountFragment ব্যবহার করতে পারেন
+            }
+
+            return true;
+        });
+
+
+    }
+
+    private void replaceFragment(Fragment fragment) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.mainActivityFrameLayoutId,fragment);
+        fragmentTransaction.commit();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       // bannerSlider = findViewById(R.id.banner_slider);
+
+//        bannerImages = new ArrayList<>();
+//        bannerImages.add(R.drawable.banner1);
+//        bannerImages.add(R.drawable.banner2);
+//        bannerImages.add(R.drawable.banner3);
+//
+//        bannerAdapter = new BannerAdapter(bannerImages);
+//        bannerSlider.setAdapter(bannerAdapter);
+
+
+
+
+
+      //  RecyclerView productRecycler = findViewById(R.id.product_recycler);
+       // productRecycler.setLayoutManager(new LinearLayoutManager(this));
+
+//        List<Product> products = new ArrayList<>();
+//        products.add(new Product(R.drawable.banner1, "Shampoo", "৳120"));
+//        products.add(new Product(R.drawable.banner1, "Toothpaste", "৳80"));
+//
+//        ProductAdapter productAdapter = new ProductAdapter(products);
+//      //  productRecycler.setAdapter(productAdapter);
+//
 
 
 

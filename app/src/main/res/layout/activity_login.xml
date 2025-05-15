@@ -4,12 +4,29 @@
     android:layout_height="match_parent"
     android:background="#F7F7F7">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp">
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar"
+            android:titleTextColor="@color/colorOnBackground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp"
+            >
+
+
 
         <!-- Welcome -->
         <TextView
@@ -214,5 +231,6 @@
             android:text="Sign Up"
             android:textColor="#0066C0"
             android:textStyle="bold" />
+    </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
@@ -7,8 +8,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar"
+            android:titleTextColor="@color/colorOnBackground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal"
+
+            >
+
+
 
         <!-- Welcome Title -->
         <TextView
@@ -78,7 +96,8 @@
             android:inputType="textPassword"
             android:padding="12dp"
             android:layout_marginBottom="12dp"
-            android:background="@drawable/edittext_background" />
+            android:background="@drawable/edittext_background"
+            tools:ignore="Autofill" />
 
         <!-- Terms Agreement -->
         <LinearLayout
@@ -91,18 +110,21 @@
             <CheckBox
                 android:id="@+id/checkboxAgree"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:gravity="center"
+                android:layout_height="match_parent"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="I agree with "
                 android:textColor="#000000"/>
 
             <TextView
                 android:id="@+id/termsText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="Terms &amp; Privacy."
                 android:textColor="#0066C0"/>
         </LinearLayout>
@@ -149,42 +171,13 @@
         <!-- Google login -->
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGoogleSignIn"
-            android:layout_width="300dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- OR Divider -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#CCCCCC"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  OR  "
-                android:textColor="#999999"/>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#CCCCCC"/>
-        </LinearLayout>
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="303dp"
-            android:layout_height="54dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="20dp" />
 
         <!-- Already have an account -->
         <TextView
@@ -204,5 +197,6 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_gravity="center"/>
+    </LinearLayout>
     </LinearLayout>
 </ScrollView>

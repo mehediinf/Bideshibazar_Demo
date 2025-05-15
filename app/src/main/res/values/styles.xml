@@ -25,6 +25,16 @@
         <item name="android:background">@drawable/rounded_button</item>
     </style>
 
+    <!-- Custom Button Style -->
+    <style name="CustomButtonStyle">
+        <!-- Customize button background color -->
+        <item name="android:backgroundTint">@color/white</item> <!-- Background color -->
+        <!-- Customize button text color -->
+        <item name="android:textColor">@color/black</item> <!-- Text color -->
+        <!-- Customize button text size -->
+        <item name="android:textSize">16sp</item> <!-- Text size -->
+        <!-- Customize button corner radius -->
+    </style>
 
 
 
@@ -34,4 +44,5 @@
     </style>
 
 
+    <color name="black">#000000</color>
 </resources>
