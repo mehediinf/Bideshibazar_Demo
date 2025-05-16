@@ -8,13 +8,6 @@
         android:title="Notifications"
         android:showAsAction="ifRoom"
         tools:ignore="AppCompatResource" />
-    <item
-        android:id="@+id/action_cart"
-        android:icon="@drawable/cart"
-        android:title="Cart"
-        android:showAsAction="ifRoom"
-        app:actionLayout="@layout/cart_badge_layout"
-        tools:ignore="AppCompatResource" />
 </menu>
 
 
