@@ -11,8 +11,8 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
         android:background="#FFFFFF"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="4dp">
 
         <!-- Collapsing Top Layout (logo, notification) -->
@@ -26,8 +26,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:padding="10dp"
                 app:layout_collapseMode="parallax">
 
@@ -35,11 +35,11 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/font_page"
-                    android:contentDescription="Logo"
-                    android:layout_weight="1"
-                    android:scaleType="fitStart"
                     android:layout_gravity="start|center_vertical"
+                    android:layout_weight="1"
+                    android:contentDescription="Logo"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/font_page"
                     tools:ignore="RtlHardcoded" />
 
                 <!-- Empty Space (acts like spacer) -->
@@ -52,9 +52,9 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/notification_big"
-                    android:contentDescription="Notification"
                     android:layout_gravity="end|center_vertical"
+                    android:contentDescription="Notification"
+                    android:src="@drawable/notification_big"
                     tools:ignore="RtlHardcoded" />
             </LinearLayout>
 
@@ -70,20 +70,19 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:hint="Search Bideshibazar"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/search_bar_background"
             android:drawableStart="@android:drawable/ic_menu_search"
             android:drawablePadding="10dp"
+            android:elevation="4dp"
+            android:hint="Search Bideshibazar"
+            android:inputType="text"
             android:padding="12dp"
-            android:textSize="14sp"
             android:textColor="@android:color/black"
             android:textColorHint="#888888"
-            android:elevation="4dp"
-            android:inputType="text"
+            android:textSize="14sp"
             app:layout_scrollFlags="enterAlways" />
-
 
 
         <HorizontalScrollView
@@ -97,52 +96,55 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_gravity="center"
                 android:gravity="center_vertical"
-                android:layout_gravity="center">
+                android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/groceriesBtn"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/button_background_selector"
+                    android:drawableTop="@drawable/basket"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:padding="6dp"
                     android:text="Groceries"
                     android:textAllCaps="false"
                     android:textColor="#333333"
-                    android:textSize="13sp"
-                    android:drawableTop="@drawable/basket"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:padding="6dp"
-                    android:gravity="center"
-                    android:elevation="2dp" />
+                    android:textSize="13sp" />
 
                 <Button
+                    android:id="@+id/fashionBtn"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/button_background_selector"
+                    android:drawableTop="@drawable/fashion"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:padding="6dp"
                     android:text="Fashion"
                     android:textAllCaps="false"
                     android:textColor="#333333"
-                    android:textSize="13sp"
-                    android:drawableTop="@drawable/fashion"
-                    android:layout_marginEnd="8dp"
-                    android:padding="6dp"
-                    android:gravity="center"
-                    android:elevation="2dp" />
+                    android:textSize="13sp" />
 
                 <Button
+                    android:id="@+id/ticketBtn"
                     android:layout_width="80dp"
                     android:layout_height="70dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/button_background_selector"
+                    android:drawableTop="@drawable/plane"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:padding="6dp"
                     android:text="Air Ticket"
                     android:textAllCaps="false"
                     android:textColor="#333333"
-                    android:textSize="13sp"
-                    android:drawableTop="@drawable/plane"
-                    android:layout_marginEnd="8dp"
-                    android:padding="6dp"
-                    android:gravity="center"
-                    android:elevation="2dp" />
+                    android:textSize="13sp" />
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -167,16 +169,17 @@
 
             <!-- Scrollable Dummy Products -->
             <HorizontalScrollView
-                android:layout_width="match_parent"
+                android:id="@+id/subCategoryRecyclerView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:layout_marginTop="5dp"
-                android:scrollbars="none">
+                android:scrollbars="none"
+                android:visibility="visible"
+                >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#C4C7C1"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:orientation="horizontal">
@@ -184,10 +187,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="All"
-                        android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="8dp"
+                        android:text="All" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -335,29 +338,160 @@
                         android:foreground="?attr/selectableItemBackground"/>
 
                 </LinearLayout>
+
+
             </HorizontalScrollView>
-
-
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/a_logo" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/a_logo" />
-            <TextView
+            <HorizontalScrollView
+                android:id="@+id/scrollFashion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hudai"
+                android:scrollbars="none"
+                android:visibility="gone"
+                >
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="8dp"
+                        android:text="All" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Offers"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Saree"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dresses"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jewelery &amp; Ornaments"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"/>
+
+
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+            <HorizontalScrollView
+                android:id="@+id/scrollTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:scrollbars="none"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="8dp"
+                        android:text="C o m i n g   S o o n !" />
+
+
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:visibility="visible"
+                tools:listitem="@layout/item_product" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BAB3B3"
                 />
 
+            <LinearLayout
+                android:id="@+id/nextPageArrow"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:clickable="true"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:text="See more.."
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center"
+                    />
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.2"
+                    android:gravity="right|center"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/outline_arrow_forward_ios_24"
+                    />
+
+
+
+            </LinearLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BAB3B3"
+                android:layout_marginTop="70dp"
+
+                />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

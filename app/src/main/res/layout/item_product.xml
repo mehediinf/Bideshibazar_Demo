@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="2dp"
+    android:radius="8dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="Product Image"
+            android:src="@drawable/pr1"
+            android:layout_marginBottom="8dp"
+            android:background="#F5F5F5" />
+
+        <!-- Product Title -->
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="Product Name"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#212121" />
+
+        <!-- Added to Cart -->
+        <TextView
+            android:id="@+id/addedToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 added to cart"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Sold and Rating -->
+        <TextView
+            android:id="@+id/soldAndRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123 sold ⭐ 4.7"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Pricing Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/currentPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BDT607.94"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/oldPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BDT868.53"
+                android:textSize="13sp"
+                android:textColor="#999999"
+                android:layout_marginStart="8dp"
+                 />
+        </LinearLayout>
+
+        <!-- Discount Tag -->
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30% off"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E53935"
+            android:background="@drawable/rounded_discount_background"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

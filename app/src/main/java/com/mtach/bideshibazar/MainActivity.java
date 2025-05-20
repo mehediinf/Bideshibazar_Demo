@@ -12,7 +12,7 @@ import com.mtach.bideshibazar.databinding.ActivityMainBinding;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     ActivityMainBinding binding;
@@ -56,48 +56,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       // bannerSlider = findViewById(R.id.banner_slider);
-
-//        bannerImages = new ArrayList<>();
-//        bannerImages.add(R.drawable.banner1);
-//        bannerImages.add(R.drawable.banner2);
-//        bannerImages.add(R.drawable.banner3);
-//
-//        bannerAdapter = new BannerAdapter(bannerImages);
-//        bannerSlider.setAdapter(bannerAdapter);
-
-
-
-
-
-      //  RecyclerView productRecycler = findViewById(R.id.product_recycler);
-       // productRecycler.setLayoutManager(new LinearLayoutManager(this));
-
-//        List<Product> products = new ArrayList<>();
-//        products.add(new Product(R.drawable.banner1, "Shampoo", "৳120"));
-//        products.add(new Product(R.drawable.banner1, "Toothpaste", "৳80"));
-//
-//        ProductAdapter productAdapter = new ProductAdapter(products);
-//      //  productRecycler.setAdapter(productAdapter);
-//
 
 
 

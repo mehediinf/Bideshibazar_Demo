@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296549560438",
+    "project_id": "bideshibazar-34bb1",
+    "storage_bucket": "bideshibazar-34bb1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296549560438:android:15fc2ddc9f83bc44e66f57",
+        "android_client_info": {
+          "package_name": "com.mtach.bideshibazar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr8PKs9iluq2mLPz1PkL7ZPue2-x0JTzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
