@@ -1,5 +1,6 @@
 package com.mtach.bideshibazar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mtach.bideshibazar.databinding.FragmentHomeBinding;
 import com.mtach.bideshibazar.product.Product;
 import com.mtach.bideshibazar.product.ProductAdapter;
+import com.mtach.bideshibazar.product.SubcategoryProductActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,11 @@ public class HomeFragment extends Fragment {
     private String currentCategory = "groceries"; // 🔧 Fix: initialized to avoid error
 
     private NestedScrollView nestedScrollView;
+
+    private LinearLayout nextPageArrow;
+    private TextView seeMoreText;
+    private String selectedSubcategory = "";
+
 
 
 
@@ -67,6 +74,8 @@ public class HomeFragment extends Fragment {
 
         nestedScrollView = view.findViewById(R.id.nestedScrollView);
 
+        nextPageArrow = view.findViewById(R.id.nextPageArrow);
+        seeMoreText = view.findViewById(R.id.seeMoreText);
 
 
 
@@ -105,6 +114,19 @@ public class HomeFragment extends Fragment {
             selectDefaultSubcategory(ticketSubcategories);
             scrollToTop(); // 👈 Scroll to top
         });
+
+
+
+
+        nextPageArrow.setOnClickListener(v -> {
+            if (!selectedSubcategory.isEmpty()) {
+                Intent intent = new Intent(getActivity(), SubcategoryProductActivity.class);
+                intent.putExtra("subcategory", selectedSubcategory);
+                startActivity(intent);
+            }
+        });
+
+
 
 
         return view;
@@ -164,15 +186,32 @@ public class HomeFragment extends Fragment {
 //    }
 
 
+//    private void setSubCategorySelected(TextView selectedTextView, List<TextView> allSubcategories) {
+//        for (TextView tv : allSubcategories) {
+//            tv.setSelected(tv == selectedTextView);
+//        }
+//
+//        // Load dummy products
+//        String subcategory = selectedTextView.getText().toString();
+//        loadProductsForSubcategory(subcategory);
+//    }
+
     private void setSubCategorySelected(TextView selectedTextView, List<TextView> allSubcategories) {
         for (TextView tv : allSubcategories) {
             tv.setSelected(tv == selectedTextView);
         }
 
+        // Save selected subcategory name
+        selectedSubcategory = selectedTextView.getText().toString();
+
+        // Update See more text
+        seeMoreText.setText("See more from \"" + selectedSubcategory + "\"");
+
         // Load dummy products
-        String subcategory = selectedTextView.getText().toString();
-        loadProductsForSubcategory(subcategory);
+        loadProductsForSubcategory(selectedSubcategory);
     }
+
+
 
     /**
      * Call this method if you're using hardcoded subcategory TextViews in your layout.
@@ -250,6 +289,7 @@ public class HomeFragment extends Fragment {
         productAdapter.addProducts(Product.generateDummyData(currentCategory, page));
         productRecyclerView.scrollToPosition(0);
     }
+
 
 
 
