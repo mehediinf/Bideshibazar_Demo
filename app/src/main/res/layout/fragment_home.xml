@@ -106,7 +106,7 @@
                     android:layout_height="70dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/button_background_selector"
+                    android:background="@drawable/category_button_background_selector"
                     android:drawableTop="@drawable/basket"
                     android:elevation="2dp"
                     android:gravity="center"
@@ -121,7 +121,7 @@
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/button_background_selector"
+                    android:background="@drawable/category_button_background_selector"
                     android:drawableTop="@drawable/fashion"
                     android:elevation="2dp"
                     android:gravity="center"
@@ -136,7 +136,7 @@
                     android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/button_background_selector"
+                    android:background="@drawable/category_button_background_selector"
                     android:drawableTop="@drawable/plane"
                     android:elevation="2dp"
                     android:gravity="center"
@@ -154,6 +154,7 @@
 
     <!-- Scrollable Content Area -->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
@@ -178,6 +179,7 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/grocerySubCategoryLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
@@ -185,157 +187,233 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/grocery_All"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
                         android:padding="8dp"
                         android:text="All" />
 
                     <TextView
+                        android:id="@+id/grocery_Offers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Offers"
                         android:padding="8dp"
+                        android:backgroundTint="#EF2D6D"
+                        android:textColor="@color/white"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_ReadyToEat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ready to Eat"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_FruitVegetables"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fruit and Vegetables"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_Drinks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Drinks"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_RiceNoodles"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rice &amp; Noodles"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_FloursCereals"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Flours &amp; Cereals"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_NutsPulses"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Beans, Nuts &amp; Pulses"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_CoconutMilk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Coconut &amp; Milk"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_OilsButter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Oils &amp; Butter"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_SweetsSnacks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sweets &amp; Snacks"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_HerbsSpices"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Herbs &amp; Spices"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_MeatSoya"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fish , Meat &amp; Soya"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_Sauces"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sauces"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_CookingPastesKits"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cooking Pastes &amp; Kits"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_Dal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dal"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_PersonalCare"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Personal Care"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/grocery_ElectronicAccessories"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Electronic Accessories"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
 
                     <TextView
+                        android:id="@+id/grocery_BeautyProducts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Beauty Products"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                 </LinearLayout>
 
@@ -350,6 +428,7 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/fashionSubCategoryLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
@@ -357,44 +436,64 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/fashion_All"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
                         android:padding="8dp"
                         android:text="All" />
 
                     <TextView
+                        android:id="@+id/fashion_Offers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Offers"
                         android:padding="8dp"
+                        android:backgroundTint="#EF2D6D"
+                        android:textColor="@color/white"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/fashion_Saree"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Saree"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/fashion_Dresses"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dresses"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
                     <TextView
+                        android:id="@+id/fashion_JeweleryOrnaments"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jewelery &amp; Ornaments"
                         android:padding="8dp"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
 
 
 
@@ -412,6 +511,7 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/ticketSubCategoryLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
@@ -419,10 +519,26 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/airTicket_Offers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Offers"
+                        android:padding="8dp"
+                        android:backgroundTint="#EF2D6D"
+                        android:textColor="@color/white"
+                        android:clickable="true"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/airTicket_ComingSoon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/sub_category_button_background_selector"
                         android:padding="8dp"
                         android:text="C o m i n g   S o o n !" />
 

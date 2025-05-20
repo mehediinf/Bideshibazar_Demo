@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    private List<Product> productList;
+    private final List<Product> productList;
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
@@ -37,18 +37,29 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productName.setText(product.getName());
         holder.addedToCart.setText(product.getAddedToCart() + " added to cart");
         holder.soldAndRating.setText(product.getSold() + " sold ⭐ " + product.getRating());
-        holder.currentPrice.setText("BDT" + product.getCurrentPrice());
-        holder.oldPrice.setText("BDT" + product.getOldPrice());
+        holder.currentPrice.setText("BDT " + product.getCurrentPrice());
+        holder.oldPrice.setText("BDT " + product.getOldPrice());
         holder.oldPrice.setPaintFlags(holder.oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        holder.discount.setText(product.getDiscount() + "% off");
-
-        // Set Image
+        holder.discount.setText(product.getDiscount() + "% OFF");
         holder.productImage.setImageResource(product.getImageResId());
     }
 
     @Override
     public int getItemCount() {
         return productList.size();
+    }
+
+    // 🔄 Clear current product list
+    public void clearProducts() {
+        productList.clear();
+        notifyDataSetChanged();
+    }
+
+    // ➕ Add new products
+    public void addProducts(List<Product> newProducts) {
+        int startPos = productList.size();
+        productList.addAll(newProducts);
+        notifyItemRangeInserted(startPos, newProducts.size());
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
@@ -67,4 +78,3 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
     }
 }
-

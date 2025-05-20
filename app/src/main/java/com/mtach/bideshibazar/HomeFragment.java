@@ -1,105 +1,259 @@
 package com.mtach.bideshibazar;
 
-import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mtach.bideshibazar.databinding.FragmentHomeBinding;
 import com.mtach.bideshibazar.product.Product;
 import com.mtach.bideshibazar.product.ProductAdapter;
-import com.mtach.bideshibazar.shop.ShopFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private Button groceriesBtn, fashionBtn, ticketBtn;
-    private RecyclerView productRecyclerView;
-    private LinearLayout nextPageArrow;
+    private HorizontalScrollView subCategoryRecyclerView;
+    private HorizontalScrollView scrollFashion;
+    private HorizontalScrollView scrollTicket;
 
-    private List<Product> groceriesList;
-    private int currentPage = 0;
-    private static final int ITEMS_PER_PAGE = 10;
+    private Button groceriesBtn, fashionBtn, ticketBtn;
+
+    // Optional: For managing subcategory selection
+    private final List<TextView> grocerySubcategories = new ArrayList<>();
+    private final List<TextView> fashionSubcategories = new ArrayList<>();
+    private final List<TextView> ticketSubcategories = new ArrayList<>();
+
+    private RecyclerView productRecyclerView;
+    private ProductAdapter productAdapter;
+
+    private String currentCategory = "groceries"; // 🔧 Fix: initialized to avoid error
+
+    private NestedScrollView nestedScrollView;
+
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Initialize views
+        // Init buttons
         groceriesBtn = view.findViewById(R.id.groceriesBtn);
         fashionBtn = view.findViewById(R.id.fashionBtn);
         ticketBtn = view.findViewById(R.id.ticketBtn);
+
+        // Init scroll containers
+        subCategoryRecyclerView = view.findViewById(R.id.subCategoryRecyclerView);
+        scrollFashion = view.findViewById(R.id.scrollFashion);
+        scrollTicket = view.findViewById(R.id.scrollTicket);
+
+
         productRecyclerView = view.findViewById(R.id.productRecyclerView);
-        nextPageArrow = view.findViewById(R.id.nextPageArrow);
+        productRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        productAdapter = new ProductAdapter(new ArrayList<>());
+        productRecyclerView.setAdapter(productAdapter);
 
-        // Set LayoutManager
-        productRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2)); // 2 columns
 
-        // Load product list (dummy data)
-        groceriesList = getGroceriesProducts();
+        nestedScrollView = view.findViewById(R.id.nestedScrollView);
 
-        // Grocery Button Click
+
+
+
+
+        // Subcategory click setup
+        initSubCategoryClickListeners(view);
+
+        // Default: Grocery selected
+        setCategorySelected(groceriesBtn, fashionBtn, ticketBtn);
+        showCategory("grocery");
+
+        // Default: "All" in grocery subcategory selected
+        selectDefaultSubcategory(grocerySubcategories);
+
+        // Set listeners
         groceriesBtn.setOnClickListener(v -> {
-            currentPage = 0;
-            loadCurrentPage();
-            setActiveCategory(groceriesBtn);
+            loadCategory("groceries");
+            setCategorySelected(groceriesBtn, fashionBtn, ticketBtn);
+            showCategory("grocery");
+            selectDefaultSubcategory(grocerySubcategories);
+            scrollToTop(); // 👈 Scroll to top
         });
 
-        // Fashion / Ticket Button - Add if needed later
-
-        // Next Page Arrow Click
-        nextPageArrow.setOnClickListener(v -> {
-
-
-            //startActivity(new Intent(getActivity(), ShopFragment.class));
-
-            int maxPages = (int) Math.ceil((double) groceriesList.size() / ITEMS_PER_PAGE);
-            if (currentPage < maxPages - 1) {
-                currentPage++;
-                loadCurrentPage();
-            }
+        fashionBtn.setOnClickListener(v -> {
+            loadCategory("fashion");
+            setCategorySelected(fashionBtn, groceriesBtn, ticketBtn);
+            showCategory("fashion");
+            selectDefaultSubcategory(fashionSubcategories);
+            scrollToTop(); // 👈 Scroll to top
         });
 
-        // ✅ Default Load
-        groceriesBtn.performClick(); // Trigger click to auto-load groceries & apply UI style
+        ticketBtn.setOnClickListener(v -> {
+            loadCategory("tickets");
+            setCategorySelected(ticketBtn, groceriesBtn, fashionBtn);
+            showCategory("ticket");
+            selectDefaultSubcategory(ticketSubcategories);
+            scrollToTop(); // 👈 Scroll to top
+        });
+
 
         return view;
     }
 
-    // Optional method to highlight active category visually
-    private void setActiveCategory(Button activeButton) {
-        groceriesBtn.setAlpha(0.5f);
-        fashionBtn.setAlpha(0.5f);
-        ticketBtn.setAlpha(0.5f);
-        activeButton.setAlpha(1.0f); // Highlight selected
+    private void scrollToTop() {
+        if (nestedScrollView != null) {
+            nestedScrollView.post(() -> nestedScrollView.fullScroll(View.FOCUS_UP));
+        }
     }
 
 
-    private void loadCurrentPage() {
-        List<Product> pageItems = getProductsByPage(groceriesList, currentPage);
-        ProductAdapter adapter = new ProductAdapter(pageItems);
-        productRecyclerView.setAdapter(adapter);
+
+    /**
+     * Shows and hides subcategory views based on selected category
+     */
+    private void showCategory(String category) {
+        subCategoryRecyclerView.setVisibility(View.GONE);
+        scrollFashion.setVisibility(View.GONE);
+        scrollTicket.setVisibility(View.GONE);
+
+        switch (category) {
+            case "grocery":
+                subCategoryRecyclerView.setVisibility(View.VISIBLE);
+                break;
+            case "fashion":
+                scrollFashion.setVisibility(View.VISIBLE);
+                break;
+            case "ticket":
+                scrollTicket.setVisibility(View.VISIBLE);
+                break;
+        }
+
+        // You can also update the product list here
+        // loadProductsForCategory(category);
     }
 
-    // Dummy data generator
-    private List<Product> getGroceriesProducts() {
-        return Product.generateDummyGroceries(); // Make sure this method exists in Product class
+    /**
+     * Highlights the selected category button
+     */
+    private void setCategorySelected(Button selectedButton, Button... otherButtons) {
+        selectedButton.setSelected(true);
+        for (Button btn : otherButtons) {
+            btn.setSelected(false);
+        }
     }
 
-    private List<Product> getProductsByPage(List<Product> fullList, int page) {
-        int start = page * ITEMS_PER_PAGE;
-        int end = Math.min(start + ITEMS_PER_PAGE, fullList.size());
-        return fullList.subList(start, end);
+
+
+    /**
+     * Highlights the selected subcategory TextView
+     */
+//    private void setSubCategorySelected(TextView selectedTextView, List<TextView> allSubcategories) {
+//        for (TextView tv : allSubcategories) {
+//            tv.setSelected(tv == selectedTextView);
+//        }
+//    }
+
+
+    private void setSubCategorySelected(TextView selectedTextView, List<TextView> allSubcategories) {
+        for (TextView tv : allSubcategories) {
+            tv.setSelected(tv == selectedTextView);
+        }
+
+        // Load dummy products
+        String subcategory = selectedTextView.getText().toString();
+        loadProductsForSubcategory(subcategory);
     }
+
+    /**
+     * Call this method if you're using hardcoded subcategory TextViews in your layout.
+     * Example assumes LinearLayout containing TextViews for subcategories.
+     */
+    private void initSubCategoryClickListeners(View rootView) {
+        LinearLayout groceryLayout = rootView.findViewById(R.id.grocerySubCategoryLayout);
+        LinearLayout fashionLayout = rootView.findViewById(R.id.fashionSubCategoryLayout);
+        LinearLayout ticketLayout = rootView.findViewById(R.id.ticketSubCategoryLayout);
+
+        // Initialize grocery subcategories
+        if (groceryLayout != null) {
+            for (int i = 0; i < groceryLayout.getChildCount(); i++) {
+                View child = groceryLayout.getChildAt(i);
+                if (child instanceof TextView) {
+                    TextView tv = (TextView) child;
+                    grocerySubcategories.add(tv);
+                    tv.setOnClickListener(v -> setSubCategorySelected(tv, grocerySubcategories));
+                }
+            }
+        }
+
+        // Initialize fashion subcategories
+        if (fashionLayout != null) {
+            for (int i = 0; i < fashionLayout.getChildCount(); i++) {
+                View child = fashionLayout.getChildAt(i);
+                if (child instanceof TextView) {
+                    TextView tv = (TextView) child;
+                    fashionSubcategories.add(tv);
+                    tv.setOnClickListener(v -> setSubCategorySelected(tv, fashionSubcategories));
+                }
+            }
+        }
+
+        // Initialize ticket subcategories
+        if (ticketLayout != null) {
+            for (int i = 0; i < ticketLayout.getChildCount(); i++) {
+                View child = ticketLayout.getChildAt(i);
+                if (child instanceof TextView) {
+                    TextView tv = (TextView) child;
+                    ticketSubcategories.add(tv);
+                    tv.setOnClickListener(v -> setSubCategorySelected(tv, ticketSubcategories));
+                }
+            }
+        }
+    }
+
+    private void selectDefaultSubcategory(List<TextView> subcategoryList) {
+        for (TextView tv : subcategoryList) {
+            if (tv.getText().toString().equalsIgnoreCase("All")) {
+                setSubCategorySelected(tv, subcategoryList);
+                break;
+            }
+        }
+    }
+
+
+
+    private void loadProductsForSubcategory(String subcategory) {
+        List<Product> dummyList = new ArrayList<>();
+        int page = 1;
+
+        dummyList.addAll(Product.generateDummyData(subcategory, page));
+
+        productAdapter.clearProducts();
+        productAdapter.addProducts(dummyList);
+        productRecyclerView.scrollToPosition(0);
+    }
+
+
+    private void loadCategory(String category) {
+        currentCategory = category;
+        int page = 1;
+        productAdapter.clearProducts();
+        productAdapter.addProducts(Product.generateDummyData(currentCategory, page));
+        productRecyclerView.scrollToPosition(0);
+    }
+
+
+
+
+
+
 }
