@@ -8,10 +8,11 @@
         android:id="@+id/pageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:padding="16dp"
-        android:text="Products from Subcategory" />
+        android:layout_marginTop="10dp"
+        android:text="Products from Subcategory"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

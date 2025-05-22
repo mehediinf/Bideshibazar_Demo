@@ -1,0 +1,129 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/FooterTitle"
+            android:text="Contact Us"
+            android:layout_marginBottom="12dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FooterInfo"
+                android:text="Hotline 24/7:\n+4368864179877"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FooterInfo"
+                android:text="Email:\ninfo@bideshibazar.com"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/footer_divider"
+            android:layout_marginBottom="12dp" />
+
+
+        <TextView
+            style="@style/FooterCopyright"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="© Bideshi Bazar 2025 All rights reserved" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_paypal"
+                android:layout_marginHorizontal="6dp" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_visa"
+                android:layout_marginHorizontal="6dp" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_mastercard"
+                android:layout_marginHorizontal="6dp" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_apple_pay"
+                android:layout_marginHorizontal="6dp" />
+        </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/footer_divider"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="20dp"
+                style="@style/FooterSocialIcon"
+                android:src="@drawable/ic_facebook" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="20dp"
+                style="@style/FooterSocialIcon"
+                android:src="@drawable/ic_twitter" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="20dp"
+                style="@style/FooterSocialIcon"
+                android:src="@drawable/ic_instagram" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="20dp"
+                style="@style/FooterSocialIcon"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_youtube"
+                tools:ignore="ContentDescription,HardcodedText" />
+        </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/footer_divider"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="6dp" />
+    </LinearLayout>

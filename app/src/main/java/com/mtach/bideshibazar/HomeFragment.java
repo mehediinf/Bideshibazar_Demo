@@ -2,6 +2,7 @@ package com.mtach.bideshibazar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,26 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.mtach.bideshibazar.databinding.FragmentHomeBinding;
 import com.mtach.bideshibazar.product.Product;
 import com.mtach.bideshibazar.product.ProductAdapter;
 import com.mtach.bideshibazar.product.SubcategoryProductActivity;
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -37,7 +46,8 @@ public class HomeFragment extends Fragment {
     private final List<TextView> fashionSubcategories = new ArrayList<>();
     private final List<TextView> ticketSubcategories = new ArrayList<>();
 
-    private RecyclerView productRecyclerView;
+    private RecyclerView productRecyclerView,popularProductRecyclerView;
+
     private ProductAdapter productAdapter;
 
     private String currentCategory = "groceries"; // 🔧 Fix: initialized to avoid error
@@ -76,6 +86,52 @@ public class HomeFragment extends Fragment {
 
         nextPageArrow = view.findViewById(R.id.nextPageArrow);
         seeMoreText = view.findViewById(R.id.seeMoreText);
+
+
+        // ✅ New: Initialize popular product RecyclerView
+        popularProductRecyclerView = view.findViewById(R.id.popularProduct);
+        popularProductRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2)); // 2 columns
+
+        /// Load popular product list
+        List<Product> popularProducts = Product.generateDummyData("popular", 1);
+        ProductAdapter popularAdapter = new ProductAdapter(popularProducts);
+        popularProductRecyclerView.setAdapter(popularAdapter);
+        popularProductRecyclerView.setVisibility(View.VISIBLE);
+
+
+        WebView youtubeWebView = view.findViewById(R.id.youtubeWebView);
+        setupYoutubeWebView(youtubeWebView);
+
+
+
+        ViewPager2 trendingViewPager = view.findViewById(R.id.trendingViewPager);
+        WormDotsIndicator dotsIndicator = view.findViewById(R.id.dots_indicator);
+
+// ইমেজ লিস্ট
+        List<Integer> imageList = Arrays.asList(
+                R.drawable.slide1,
+                R.drawable.slide2,
+                R.drawable.slide3
+        );
+
+        ImageSliderAdapter adapter = new ImageSliderAdapter(getContext(), imageList);
+        trendingViewPager.setAdapter(adapter);
+        dotsIndicator.setViewPager2(trendingViewPager);
+
+
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                int next = (trendingViewPager.getCurrentItem() + 1) % imageList.size();
+                trendingViewPager.setCurrentItem(next, true);
+                handler.postDelayed(this, 3000); // every 3 sec
+            }
+        };
+        handler.postDelayed(runnable, 3000);
+
+
+
 
 
 
@@ -271,10 +327,9 @@ public class HomeFragment extends Fragment {
 
 
     private void loadProductsForSubcategory(String subcategory) {
-        List<Product> dummyList = new ArrayList<>();
         int page = 1;
 
-        dummyList.addAll(Product.generateDummyData(subcategory, page));
+        List<Product> dummyList = new ArrayList<>(Product.generateDummyData(subcategory, page));
 
         productAdapter.clearProducts();
         productAdapter.addProducts(dummyList);
@@ -289,6 +344,24 @@ public class HomeFragment extends Fragment {
         productAdapter.addProducts(Product.generateDummyData(currentCategory, page));
         productRecyclerView.scrollToPosition(0);
     }
+
+
+    private void setupYoutubeWebView(WebView webView) {
+        String videoId = "0k32gxIdlI4";  // তোমার ভিডিও আইডি
+        String videoEmbedUrl = "<iframe width=\"100%\" height=\"100%\" " +
+                "src=\"https://www.youtube.com/embed/" + videoId + "\" " +
+                "frameborder=\"0\" allowfullscreen></iframe>";
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+
+        String html = "<html><body style='margin:0;padding:0;'>" + videoEmbedUrl + "</body></html>";
+        webView.loadData(html, "text/html", "utf-8");
+    }
+
+
+
 
 
 

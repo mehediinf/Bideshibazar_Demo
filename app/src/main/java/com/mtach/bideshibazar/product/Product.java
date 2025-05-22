@@ -62,7 +62,7 @@ public class Product {
             case "tickets":
                 return R.drawable.basket;
             default:
-                return R.drawable.font_page;
+                return R.drawable.pr2;
         }
     }
 

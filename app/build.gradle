@@ -70,6 +70,12 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
 
 
+    // ViewPager2 (already included in androidx)
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+// Dots Indicator
+    implementation 'com.tbuonomo:dotsindicator:4.3'
+
 
 
 }

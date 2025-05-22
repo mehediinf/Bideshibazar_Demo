@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="RoundedButton">
         <item name="android:backgroundTint">#FFCC00</item>
         <item name="android:textColor">#000000</item>
@@ -42,6 +42,41 @@
     <style name="RoundedButtonGray" parent="RoundedButton">
         <item name="android:backgroundTint">#F1F1F1</item>
     </style>
+
+
+    <style name="FooterTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FooterInfo">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#444444</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="FooterCopyright">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#888888</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="FooterSocialIcon">
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_margin">6dp</item>
+    </style>
+
+
+    <style name="CustomWebViewStyle">
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:clipToOutline" tools:targetApi="31">true</item>
+    </style>
+
 
 
     <color name="black">#000000</color>
