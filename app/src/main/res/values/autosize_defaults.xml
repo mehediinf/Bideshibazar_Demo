@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="title_min">14sp</dimen>
+    <dimen name="title_max">22sp</dimen>
+
+    <dimen name="text_min">11sp</dimen>
+    <dimen name="text_max">16sp</dimen>
+</resources>

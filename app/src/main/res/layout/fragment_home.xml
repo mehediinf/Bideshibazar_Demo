@@ -634,7 +634,6 @@
                 android:drawableBottom="@drawable/underline_divider"
                 tools:ignore="UseCompatTextViewDrawableXml" />
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popularProduct"
                 android:layout_width="match_parent"

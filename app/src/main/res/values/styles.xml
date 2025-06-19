@@ -78,6 +78,35 @@
     </style>
 
 
+    <style name="CategoryTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/category_selector</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+
+    <!-- res/values/styles.xml -->
+    <style name="AccountHeaderIcon" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="AccountIconButton" parent="Widget.Material3.Button.Icon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="iconTint">@color/black</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+
+
 
     <color name="black">#000000</color>
 </resources>

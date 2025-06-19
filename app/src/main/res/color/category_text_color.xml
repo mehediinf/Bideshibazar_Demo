@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- সিলেক্টেড আইটেমের টেক্সট -->
+    <item android:state_activated="true" android:color="#D84315" />
+    <!-- ডিফল্ট টেক্সট -->
+    <item android:color="#212121" />
+</selector>

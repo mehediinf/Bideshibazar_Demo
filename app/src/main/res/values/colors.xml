@@ -32,6 +32,16 @@
     <color name="footer_bg">#F9F9F9</color>
     <color name="footer_divider">#DADADA</color>
 
+    <color name="selected_shop_background">#FFE0B2</color> <!-- হালকা কমলা -->
+
+    <color name="categorySelected">#FFEFEFEF</color>  <!-- light grey -->
+    <color name="categoryNormal">#F0F4F6</color>    <!-- white -->
+    <color name="categoryPressed">#FFF5F5F5</color>
+
+    <color name="surface_card">#FAFAFA</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
 
 
 </resources>

@@ -3,6 +3,7 @@ package com.mtach.bideshibazar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,10 +117,10 @@ public class HomeFragment extends Fragment {
 
         ImageSliderAdapter adapter = new ImageSliderAdapter(getContext(), imageList);
         trendingViewPager.setAdapter(adapter);
-        dotsIndicator.setViewPager2(trendingViewPager);
+        dotsIndicator.attachTo(trendingViewPager);
 
 
-        Handler handler = new Handler();
+        Handler handler = new Handler(Looper.getMainLooper());
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

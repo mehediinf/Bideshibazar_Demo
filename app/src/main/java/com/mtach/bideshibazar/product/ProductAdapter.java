@@ -37,8 +37,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productName.setText(product.getName());
         holder.addedToCart.setText(product.getAddedToCart() + " added to cart");
         holder.soldAndRating.setText(product.getSold() + " sold ⭐ " + product.getRating());
-        holder.currentPrice.setText("BDT " + product.getCurrentPrice());
-        holder.oldPrice.setText("BDT " + product.getOldPrice());
+        holder.currentPrice.setText("€ " + product.getCurrentPrice());
+        holder.oldPrice.setText("€ " + product.getOldPrice());
         holder.oldPrice.setPaintFlags(holder.oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.discount.setText(product.getDiscount() + "% OFF");
         holder.productImage.setImageResource(product.getImageResId());

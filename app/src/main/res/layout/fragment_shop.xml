@@ -1,14 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".shop.ShopFragment">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:textSize="18sp"
+            android:padding="18dp"
+            android:textStyle="bold"
+            android:background="@color/white"
+            android:gravity="center|left"
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="end"
+            android:background="#CCCCCC" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
-</FrameLayout>
+
+        <!-- Category ListView with right border -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent">
+
+            <!-- ListView -->
+            <ListView
+                android:id="@+id/categoryListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="0dp"
+                android:paddingTop="6dp"
+                android:paddingStart="6dp"
+                android:paddingBottom="6dp"
+                android:drawSelectorOnTop="true"
+                android:choiceMode="singleChoice"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <!-- Right border line -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="#CCCCCC" />
+
+        </FrameLayout>
+
+        <!-- Right Fragment Display -->
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="#FFFFFF" />
+
+    </LinearLayout>
+    </LinearLayout>
+</HorizontalScrollView>

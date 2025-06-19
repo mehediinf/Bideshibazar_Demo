@@ -10,12 +10,23 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:layout_marginTop="10dp"
-        android:text="Products from Subcategory"
+        android:text="More products"
         android:textSize="20sp"
         android:textStyle="bold" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp"
+        />
+
+
 </LinearLayout>
+
+
+
+
+
+
