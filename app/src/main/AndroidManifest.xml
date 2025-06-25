@@ -17,6 +17,33 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".features.ComplainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".webview.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.AllFeaturesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.HelpCenterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.BideshibazarClubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.TaxInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.BrowsingHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".account.SettingsActivity"
             android:exported="false" />
         <activity

@@ -1,4 +1,4 @@
-package com.mtach.bideshibazar.account;
+package com.mtach.bideshibazar.features;
 
 import android.os.Bundle;
 
@@ -10,13 +10,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.mtach.bideshibazar.R;
 
-public class MyOrderHistoryActivity extends AppCompatActivity {
+public class AllFeaturesActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_my_order_history);
+        setContentView(R.layout.activity_all_features);
+
+
+
+
 
 
 

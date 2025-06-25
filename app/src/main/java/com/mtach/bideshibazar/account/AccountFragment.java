@@ -18,15 +18,24 @@ import android.widget.TextView;
 
 import com.mtach.bideshibazar.AccountSignActivity;
 import com.mtach.bideshibazar.R;
+import com.mtach.bideshibazar.features.AllFeaturesActivity;
+import com.mtach.bideshibazar.features.BrowsingHistoryActivity;
+import com.mtach.bideshibazar.features.ComplainActivity;
+import com.mtach.bideshibazar.features.HelpCenterActivity;
+import com.mtach.bideshibazar.features.PaymentActivity;
+import com.mtach.bideshibazar.features.ProfileActivity;
+import com.mtach.bideshibazar.features.TaxInformationActivity;
 import com.mtach.bideshibazar.store.StoreProduct;
 import com.mtach.bideshibazar.store.StoreProductAdapter;
+import com.mtach.bideshibazar.webview.WebViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class AccountFragment extends Fragment {
-    private LinearLayout myOrderLayout,webLinkLayout;
+    private LinearLayout myOrderLayout,webLinkLayout,profileId, historyId, paymentId, taxInformationId,
+            bideshibazarClubId, sellerAccountId, helpCenterId, complainId,features;
     private RecyclerView productRecyclerView;
     private StoreProductAdapter productAdapter;
     private ImageView headsetIcon, settingsIcon;
@@ -48,6 +57,16 @@ public class AccountFragment extends Fragment {
         headsetIcon = view.findViewById(R.id.headsetId);
         settingsIcon = view.findViewById(R.id.settingsId);
 
+        features = view.findViewById(R.id.featuresId);
+        profileId = view.findViewById(R.id.profileId);
+        historyId = view.findViewById(R.id.historyId);
+        paymentId = view.findViewById(R.id.paymentId);
+        taxInformationId = view.findViewById(R.id.tax_informationId);
+        bideshibazarClubId = view.findViewById(R.id.bideshibazarClubId);
+        sellerAccountId = view.findViewById(R.id.sellerAccountId);
+        helpCenterId = view.findViewById(R.id.helpCenterId);
+        complainId = view.findViewById(R.id.complainId);
+
 
         singInBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), AccountSignActivity.class);
@@ -62,10 +81,59 @@ public class AccountFragment extends Fragment {
             startActivity(intent);
         });
 
+
+
+        // Set features
+
+        features.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), AllFeaturesActivity.class));
+
+        });
+
+        profileId.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ProfileActivity.class));
+        });
+
+        historyId.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), BrowsingHistoryActivity.class));
+
+        });
+
+        paymentId.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), PaymentActivity.class));
+        });
+
+        taxInformationId.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), TaxInformationActivity.class));
+
+        });
+
+        bideshibazarClubId.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), WebViewActivity.class);
+            intent.putExtra("url", "https://bideshibazar.com/club");
+            startActivity(intent);
+        });
+
+        sellerAccountId.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), WebViewActivity.class);
+            intent.putExtra("url", "https://bideshibazar.com/seller/login");
+            startActivity(intent);
+        });
+
+        helpCenterId.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), HelpCenterActivity.class));
+
+        });
+
+        complainId.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ComplainActivity.class));
+        });
+
+
+
         // My Order Section Click Listener
         myOrderLayout = view.findViewById(R.id.myOrder);
         myOrderLayout.setOnClickListener(v -> {
-            // উদাহরণ: Order History Activity খুলবে
             Intent intent = new Intent(getActivity(), MyOrderHistoryActivity.class);
             startActivity(intent);
         });

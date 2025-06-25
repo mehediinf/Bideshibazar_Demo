@@ -144,36 +144,15 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingEnd="16dp">
 
+                    <!-- Reusable Item Layout -->
 
-                    <LinearLayout
-                        android:id="@+id/profileId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/payment" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Profile"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-
+                    <!-- Browsing history -->
                     <LinearLayout
                         android:id="@+id/historyId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
@@ -181,22 +160,29 @@
                             android:src="@drawable/history" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Browsing history"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Browsing history" />
+                    </LinearLayout>
+
+                    <!-- Profile -->
+                    <LinearLayout
+                        android:id="@+id/profileId"
+                        style="@style/FeatureItemStyle">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/profile" />
+
+                        <TextView
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Profile" />
                     </LinearLayout>
 
                     <!-- Payment -->
                     <LinearLayout
                         android:id="@+id/paymentId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
@@ -204,147 +190,88 @@
                             android:src="@drawable/payment" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Payment"
-                            android:gravity="center"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Payment" />
                     </LinearLayout>
 
-
+                    <!-- Tax Information -->
                     <LinearLayout
                         android:id="@+id/tax_informationId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/payment" />
+                            android:src="@drawable/tax" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tax information"
-                            android:gravity="center"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Tax information" />
                     </LinearLayout>
 
+                    <!-- Bideshi Bazar Club -->
                     <LinearLayout
-                        android:id="@+id/paymentId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:id="@+id/bideshibazarClubId"
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/payment" />
+                            android:src="@drawable/club" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Payment"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Bideshi Bazar Club" />
                     </LinearLayout>
 
+                    <!-- Seller Account -->
                     <LinearLayout
-                        android:id="@+id/paymentId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:id="@+id/sellerAccountId"
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/payment" />
+                            android:src="@drawable/seller" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Payment"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Seller Account" />
                     </LinearLayout>
 
+                    <!-- Help Center -->
                     <LinearLayout
-                        android:id="@+id/paymentId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:id="@+id/helpCenterId"
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/payment" />
+                            android:src="@drawable/ic_headset" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Payment"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Help Center" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/paymentId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/payment" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Payment"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-
+                    <!-- Complain -->
                     <LinearLayout
                         android:id="@+id/complainId"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        style="@style/FeatureItemStyle">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/payment" />
+                            android:src="@drawable/complain" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Complain"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp"/>
+                            style="@style/FeatureItemTextStyle"
+                            android:text="Complain" />
                     </LinearLayout>
-
-
 
                 </LinearLayout>
             </HorizontalScrollView>
+
 
 
         </LinearLayout>
