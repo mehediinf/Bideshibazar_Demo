@@ -17,6 +17,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".account.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".account.SupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".account.MyOrderHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".product.SubcategoryProductActivity"
             android:exported="false" />
 
