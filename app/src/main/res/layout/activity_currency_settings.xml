@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+
+    >
+
+    <!-- App Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_left"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Currency"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical"
+        >
+    <!-- Instruction -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose your preferred currency:"
+        android:textSize="16sp"
+        android:textColor="#444444"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Currency Options -->
+    <RadioGroup
+        android:id="@+id/currencyGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/currencyEur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EUR - Euro" />
+
+        <RadioButton
+            android:id="@+id/currencyUsd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USD - US Dollar" />
+
+        <RadioButton
+            android:id="@+id/currencyBdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BDT - Bangladeshi Taka" />
+    </RadioGroup>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveCurrencyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Save"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50" />
+</LinearLayout>
+
+</LinearLayout>
+
+
+

@@ -17,6 +17,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".features.ShareActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.FeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.DeliverySettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.CurrencySettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.NotificationSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.LanguageSettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".features.ComplainActivity"
             android:exported="false" />
         <activity
