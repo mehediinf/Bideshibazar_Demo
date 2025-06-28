@@ -10,12 +10,21 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.mtach.bideshibazar.R;
 
-public class HelpCenterActivity extends AppCompatActivity {
+public class ReturnPolicyActivity extends AppCompatActivity {
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help_center);
+        setContentView(R.layout.activity_return_policy);
+
+
+
+
+
 
 
 

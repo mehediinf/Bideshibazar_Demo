@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+    <!-- App Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:layout_marginTop="20dp"
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_left"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Address"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card"
+        android:padding="16dp"
+        android:elevation="2dp">
+
+        <!-- Full Address Autocomplete -->
+        <EditText
+            android:id="@+id/etFullAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start typing your address..."
+            android:background="@drawable/bg_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Row: Road, House, Room -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/etRoad"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Road"
+                android:background="@drawable/bg_edittext"
+                android:padding="12dp"
+                android:layout_marginEnd="6dp"/>
+
+            <EditText
+                android:id="@+id/etHouse"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="House"
+                android:background="@drawable/bg_edittext"
+                android:padding="12dp"
+                android:layout_marginEnd="6dp"/>
+
+            <EditText
+                android:id="@+id/etRoom"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Room"
+                android:background="@drawable/bg_edittext"
+                android:padding="12dp" />
+        </LinearLayout>
+
+        <!-- Post Code -->
+        <EditText
+            android:id="@+id/etPostCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Post Code"
+            android:background="@drawable/bg_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- City -->
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:background="@drawable/bg_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Button -->
+        <Button
+            android:id="@+id/btnAddAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Address"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:elevation="4dp" />
+
+    </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>

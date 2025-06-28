@@ -21,7 +21,6 @@ import com.mtach.bideshibazar.R;
 import com.mtach.bideshibazar.features.AllFeaturesActivity;
 import com.mtach.bideshibazar.features.BrowsingHistoryActivity;
 import com.mtach.bideshibazar.features.ComplainActivity;
-import com.mtach.bideshibazar.features.HelpCenterActivity;
 import com.mtach.bideshibazar.features.PaymentActivity;
 import com.mtach.bideshibazar.features.ProfileActivity;
 import com.mtach.bideshibazar.features.TaxInformationActivity;
@@ -115,13 +114,13 @@ public class AccountFragment extends Fragment {
         });
 
         sellerAccountId.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), WebViewActivity.class);
-            intent.putExtra("url", "https://bideshibazar.com/seller/login");
+            Intent intent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=com.mtech.bideshibazarseller&pcampaignid=web_share"));
             startActivity(intent);
         });
 
         helpCenterId.setOnClickListener(v -> {
-            startActivity(new Intent(getActivity(), HelpCenterActivity.class));
+            startActivity(new Intent(getActivity(), SupportActivity.class));
 
         });
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,12 +16,18 @@ import java.util.List;
 
 public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.FeatureViewHolder> {
 
-    private List<FeatureItem> featureList;
-    private Context context;
+    public interface OnFeatureClickListener {
+        void onFeatureClick(FeatureItem item);
+    }
 
-    public FeatureAdapter(Context context, List<FeatureItem> featureList) {
+    private Context context;
+    private List<FeatureItem> featureList;
+    private OnFeatureClickListener listener;
+
+    public FeatureAdapter(Context context, List<FeatureItem> featureList, OnFeatureClickListener listener) {
         this.context = context;
         this.featureList = featureList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -37,8 +42,13 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.FeatureV
         FeatureItem item = featureList.get(position);
         holder.title.setText(item.getTitle());
 
+        // Future: set icon if you want, e.g.
+        // holder.icon.setImageResource(R.drawable.ic_feature);
+
         holder.itemView.setOnClickListener(v -> {
-            Toast.makeText(context, item.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
+            if (listener != null) {
+                listener.onFeatureClick(item);
+            }
         });
     }
 
@@ -47,15 +57,19 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.FeatureV
         return featureList.size();
     }
 
-    public static class FeatureViewHolder extends RecyclerView.ViewHolder {
+    static class FeatureViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         ImageView icon;
 
         public FeatureViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.featureTitle);
-            icon = itemView.findViewById(R.id.featureIcon);
+            icon  = itemView.findViewById(R.id.featureIcon);
         }
     }
 }
+
+
+
+
 

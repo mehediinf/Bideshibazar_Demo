@@ -17,6 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".features.FAQActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.ReturnPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.AddAddressActivity"
+            android:exported="false" />
+        <activity
             android:name=".features.ShareActivity"
             android:exported="false" />
         <activity
@@ -39,7 +51,9 @@
             android:exported="false" />
         <activity
             android:name=".features.ComplainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".webview.WebViewActivity"
             android:exported="false" />
@@ -48,9 +62,6 @@
             android:exported="false" />
         <activity
             android:name=".features.HelpCenterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".features.BideshibazarClubActivity"
             android:exported="false" />
         <activity
             android:name=".features.TaxInformationActivity"

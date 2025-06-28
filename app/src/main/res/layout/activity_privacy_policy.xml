@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+    <!-- App Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:layout_marginTop="20dp"
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_left"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Privacy Policy"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+    </RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📄 Privacy Policy"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="8dp" />
+
+
+        <!-- Section Template -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Information We Collect"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Name, phone, email, shipping address\n• Payment info (processed via secure gateways)\n• Login data, order history\n• IP address, device type\n• Cookies for app functionality and personalization"
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. How We Use Your Information"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• To manage orders, payments, and deliveries\n• Provide support and enhance services\n• Send notifications and offers\n• Detect fraud or suspicious activity"
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+
+
+
+
+
+        <!-- 3. Data Protection & Security -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Data Protection &amp; Security"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We implement strong security measures, including:\n• Secure servers and encrypted data transmission\n• Two-factor authentication for account security\n• Regular security audits and vulnerability assessments"
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 4. Cookies & Tracking Technologies -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Cookies &amp; Tracking Technologies"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We use cookies for:\n• Essential website functionality\n• Tracking website performance\n• Personalizing ads and promotions\nYou can manage cookie settings in your browser."
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 5. Third-Party Services -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Third-Party Services"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We may share your information with:\n• Payment processors for secure transactions\n• Shipping companies for order deliveries\n• Marketing partners for personalized promotions\nAll third parties comply with strict data protection standards."
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="6. Sharing of Information"
+            android:textColor="#0288D1"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We may share with:\n• Delivery services\n• Payment gateways\n• Marketing services\n🔒 We never sell your data."
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7. Data Security"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Encrypted communication (SSL)\n• Secure login and password storage\n• Regular system updates and audits"
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8. Your Rights"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Update or delete your data\n• Opt-out from marketing\n• Contact us for any concern"
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="9. Children's Privacy"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This app is not intended for users under 13 years old."
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10. Changes to this Policy"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0288D1"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We may occasionally update this policy. Major updates will be announced in the app or via email."
+            android:textColor="#424242"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Contact -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📧 Contact: info@bideshibazar.com"
+            android:textColor="#0288D1"
+            android:textStyle="bold"
+            android:autoLink="email"
+            android:layout_marginBottom="60dp" />
+    </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
