@@ -56,34 +56,6 @@
             android:text="© Bideshi Bazar 2025 All rights reserved" />
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_paypal"
-                android:layout_marginHorizontal="6dp" />
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_visa"
-                android:layout_marginHorizontal="6dp" />
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_mastercard"
-                android:layout_marginHorizontal="6dp" />
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_apple_pay"
-                android:layout_marginHorizontal="6dp" />
-        </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

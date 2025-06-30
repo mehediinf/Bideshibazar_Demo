@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +18,9 @@
         android:theme="@style/Base.Theme.Bideshibazar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".product.ProductDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".features.FAQActivity"
             android:exported="false" />
@@ -53,15 +58,11 @@
             android:name=".features.ComplainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".webview.WebViewActivity"
             android:exported="false" />
         <activity
             android:name=".features.AllFeaturesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".features.HelpCenterActivity"
             android:exported="false" />
         <activity
             android:name=".features.TaxInformationActivity"

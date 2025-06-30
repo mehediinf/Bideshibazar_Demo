@@ -1,22 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cartFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp"
     tools:context=".cart.CartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- 🛒 Cart Title -->
     <TextView
+        android:id="@+id/tvCartTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cart(0)"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_gravity="start" />
+
+    <!-- 🧺 Empty Cart Icon -->
+    <ImageView
+        android:id="@+id/imgEmptyCart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_cart_empty" />
+
+    <!-- 📭 Empty Message -->
+    <TextView
+        android:id="@+id/tvEmptyMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your cart is empty"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center" />
+
+    <!-- 🔍 Source by category Button -->
+    <Button
+        android:id="@+id/btnSourceCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Source by category"
+        android:textColor="#000000"
+        android:padding="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_border_outline"
+        android:layout_gravity="center" />
+
+    <!-- 🔐 Protection Info -->
+    <LinearLayout
+        android:id="@+id/protectionInfo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You're protected on Bideshibazar"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✅ Secure payment\n✅ Refund and returns\n✅ Fulfillment"
+            android:textSize="13sp"
+            android:textColor="#4CAF50"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+    <!-- 📦 Recommended for you -->
+    <TextView
+        android:id="@+id/tvRecommended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recommended for you"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp" />
+
+    <!-- 🛍️ Product List -->
+
+    <!-- 🧾 Bottom Bar -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:visibility="visible"
+        tools:listitem="@layout/item_product" />
 
 
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp">
+
+        <CheckBox
+            android:id="@+id/checkboxSelectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_marginEnd="16dp"
+            android:text="0.00"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:backgroundTint="#FF6F00"
+            android:text="Check out"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>
 
 
-
-
-
-
-
-</FrameLayout>

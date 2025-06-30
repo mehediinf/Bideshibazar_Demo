@@ -1,5 +1,6 @@
 package com.mtach.bideshibazar.product;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mtach.bideshibazar.product.ProductDetailsActivity;
 import com.mtach.bideshibazar.R;
 
 import java.util.List;
@@ -42,6 +44,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.oldPrice.setPaintFlags(holder.oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.discount.setText(product.getDiscount() + "% OFF");
         holder.productImage.setImageResource(product.getImageResId());
+
+        // ✅ Handle product click
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(),ProductDetailsActivity.class);
+            intent.putExtra("name", product.getName());
+            intent.putExtra("price", product.getCurrentPrice());
+            intent.putExtra("description", product.getDescription());
+            intent.putExtra("imageResId", product.getImageResId());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override

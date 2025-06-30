@@ -16,8 +16,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        // ✅ এই লাইনটা যুক্ত করো:
+        maven { url 'https://jitpack.io' }
     }
 }
+
 
 rootProject.name = "Bideshibazar"
 include ':app'

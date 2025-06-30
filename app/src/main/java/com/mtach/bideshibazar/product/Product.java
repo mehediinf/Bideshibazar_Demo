@@ -15,9 +15,11 @@ public class Product {
     private final double oldPrice;
     private final int discount;
     private final int imageResId;
+    private final String description; // 🆕 Added field
 
     public Product(String name, int addedToCart, int sold, double rating,
-                   double currentPrice, double oldPrice, int discount, int imageResId) {
+                   double currentPrice, double oldPrice, int discount,
+                   int imageResId, String description) {
         this.name = name;
         this.addedToCart = addedToCart;
         this.sold = sold;
@@ -26,9 +28,10 @@ public class Product {
         this.oldPrice = oldPrice;
         this.discount = discount;
         this.imageResId = imageResId;
+        this.description = description;
     }
 
-    // 🔄 Generic dummy generator with pagination support
+    // 🔄 Dummy data generator with description
     public static List<Product> generateDummyData(String category, int page) {
         List<Product> list = new ArrayList<>();
         int start = (page - 1) * 10;
@@ -43,14 +46,14 @@ public class Product {
             double oldPrice = currentPrice + 5;
             int discount = (int) ((oldPrice - currentPrice) / oldPrice * 100);
             int imageResId = getImageByCategory(category);
+            String description = "This is a description for " + name + ". It is a high-quality product perfect for your needs."; // 🆕
 
-            list.add(new Product(name, addedToCart, sold, rating, currentPrice, oldPrice, discount, imageResId));
+            list.add(new Product(name, addedToCart, sold, rating, currentPrice, oldPrice, discount, imageResId, description));
         }
 
         return list;
     }
 
-    // 🔁 Helper method for image selection by category
     private static int getImageByCategory(String category) {
         if (category == null) return R.drawable.font_page;
 
@@ -66,7 +69,7 @@ public class Product {
         }
     }
 
-    // 👇 Static generators for fixed data (optional use)
+    // Optional fixed generators
     public static List<Product> generateDummyGroceries() {
         return generateDummyData("groceries", 1);
     }
@@ -88,4 +91,5 @@ public class Product {
     public double getOldPrice() { return oldPrice; }
     public int getDiscount() { return discount; }
     public int getImageResId() { return imageResId; }
+    public String getDescription() { return description; } // 🆕 Getter
 }

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+    <!-- App Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:elevation="4dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/backIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_left"
+                android:contentDescription="Back" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Details"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/homeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_home_black"
+                android:contentDescription="Go to Home" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:gravity="center_horizontal">
+
+        <!-- 🖼 Product Image -->
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="16dp"
+            android:padding="4dp" />
+
+        <!-- 🏷 Product Title -->
+        <TextView
+            android:id="@+id/productTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textSize="20sp"
+            android:textColor="#141313"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 💰 Product Price -->
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="€ 2.42"
+            android:textSize="18sp"
+            android:textColor="#FF6F00"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 📝 Product Description -->
+        <TextView
+            android:id="@+id/productDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textSize="15sp"
+            android:textColor="#161515"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 👉 See More / Less -->
+        <TextView
+            android:id="@+id/seeMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See more"
+            android:textColor="#FF6F00"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:layout_marginBottom="24dp" />
+
+
+
+        <!-- 🏪 Store Info Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/store_info_background"
+            android:elevation="2dp">
+
+            <!-- 🏪 Store Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏪 Store:"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/storeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Polli Bangla Super Markt"
+                    android:layout_marginStart="8dp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- 📍 Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 Address:"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/storeAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Dressendorferstrasse 58"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- 📞 Contact -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📞 Contact:"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="06781216818"
+                    android:layout_marginStart="8dp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- 🕒 Hotline -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🕒 Hotline:"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/hotline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Mon–Fri, 10AM–5PM"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 🛒 Quantity & Add to Cart -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:weightSum="10">
+
+            <!-- ➖ Minus Button -->
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:text="−"
+                android:layout_marginRight="4dp"
+                android:textSize="20sp"
+                android:background="@drawable/qty_btn_background"
+                android:textColor="#00897B" />
+
+            <!-- 🔢 Quantity Text -->
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="1"
+                android:layout_marginRight="4dp"
+                android:textSize="18sp"
+                android:background="@drawable/qty_btn_background"
+                android:textColor="#000000" />
+
+            <!-- ➕ Plus Button -->
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:text="+"
+                android:textSize="20sp"
+                android:background="@drawable/qty_btn_background"
+                android:textColor="#00897B" />
+
+            <!-- 🛒 Add to Cart -->
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="48dp"
+                android:text="Add To Cart"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_button_selected"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Related Products"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:padding="5dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="50dp"
+            android:padding="8dp"
+            android:visibility="visible"
+            tools:listitem="@layout/item_product" />
+
+
+
+    </LinearLayout>
+</ScrollView>
+
+
